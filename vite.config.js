@@ -9,7 +9,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
       manifest: {
         name: 'workTimer',
-        short_name: 'timer',
+        short_name: 'workTimer',
         start_url: '/',
         display: 'standalone',
         background_color: '#000000',
