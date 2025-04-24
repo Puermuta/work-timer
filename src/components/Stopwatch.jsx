@@ -2,8 +2,12 @@ import React, { useState, useEffect } from "react";
 import style from "./Stopwatch.module.css";
 
 function Stopwatch() {
-    const [isActive, setIsActive] = useState(false);
+    const [isActive, setIsActive] = useState(() => {
+        const active = localStorage.getItem("active");
+        return active ? JSON.parse(active) : false;
+    });
     const [startTime, setStartTime] = useState(0);
+    
     const [elapsedTime, setElapsedTime] = useState(() => {
         const saved = localStorage.getItem("elapsedTime");
         return saved ? Number(saved) : 0;
@@ -17,8 +21,8 @@ function Stopwatch() {
             setStartTime(Date.now() - elapsedTime);
             interval = setInterval(() => {
                 setElapsedTime(Date.now() - startTime);
-                localStorage.setItem("elapsedTime", elapsedTime);
-            }, 10);
+                localStorage.setItem("elapsedTime", String(elapsedTime));
+            }, 250);
         } else {
             clearInterval(interval);
         }
@@ -27,8 +31,13 @@ function Stopwatch() {
     }, [isActive, elapsedTime, startTime]);
 
     const toggleStopwatch = () => {
-        setIsActive(!isActive);
+        setIsActive((prev) => !prev);
     }
+
+    useEffect(() => {
+        localStorage.setItem("active", JSON.parse(isActive));
+    }, [isActive]);
+
 
     const resetStopwatch = () => {
         setIsActive(false);

@@ -17,13 +17,16 @@
     margin: 2rem;
     font-size: 1rem;
     font-weight: 800;
-    text-align: center;
     background-color: #ffffff;
     color: rgb(0, 0, 0);
     border: none;
-    border-width: 10px;
     border-radius: 50%;
+}
+
+.btn:hover {
+    background-color: #e8e8e8;
     cursor: pointer;
+    transform: scale(1.01);
 }
 
 .btns {
