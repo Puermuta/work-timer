@@ -1,0 +1,45 @@
+/*
+* {
+    outline: 1px dashed lime;
+}
+*/
+
+
+.container {
+    position: relative;
+    flex-direction: column;
+    transform: translate(-50%, -50%);
+}
+
+.btn {
+    width: 8rem;
+    height: 8rem;
+    margin: 2rem;
+    font-size: 1rem;
+    font-weight: 800;
+    text-align: center;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-width: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.btns {
+    position: absolute;
+    top: 16vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    transform: translate(-50%, -50%);
+}
+
+.time {
+    position: absolute;
+    top: -25vh;
+    transform: translate(-50%, -50%);
+    font-size: 5rem;
+    font-weight: 100;
+    text-shadow: 2px 4px 6px rgba(255, 255, 255, 0.2);
+}
