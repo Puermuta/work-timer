@@ -5,6 +5,7 @@
 <ul>
   <li><del>Create structure and make it work, more to come 🔥</del></li>
   <li><del>Deploy to Vercel 🚀</del></li>
-  <li>Add storage for multiple workdays 📋</li>
-  <li>Make UI nicer to use</li>
+  <li><del>Add storage for multiple workdays 📋</del></li>
+  <li><del>Make UI nicer to use</del></li>
+  <li>Polishing and bugfixes 🦟</li>
 </ul>
