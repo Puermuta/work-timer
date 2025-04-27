@@ -84,7 +84,17 @@ function Stopwatch() {
                     <button onClick = {resetStopwatch} className={style.btn}>Reset</button>
                     <button onClick = {toggleStopwatch} className={style.btn}>{isActive ? "Pause" : "Start"}</button>
                 </div>
-                <button onClick = {toggleFinishJob} className = {`${style.btnFinishJob} ${style.btn}`}>Finish job</button>
+                <button 
+                onClick={toggleFinishJob} 
+                className={`${style.btnFinishJob} ${style.btn}`} 
+                style={{
+                    opacity: elapsedTime > 0 ? 1 : 0,
+                    visibility: elapsedTime > 0 ? 'visible' : 'hidden',
+                    transition: 'opacity 0.2s, visibility 0.2s'
+                }}
+                >
+                Finish job
+                </button>
             </div>
         </div>
     )
