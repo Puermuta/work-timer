@@ -17,6 +17,7 @@ function TimeTable() {
         <div style={{"height" : "50vh"}}>
         <WorkLogList workLogs ={workLogs} />
         </div>
+        {/*<div className = {style.subText}>{`Total: ${(workLogs.reduce((acc, curr) => acc + curr.workedTime, 0)/360000).toFixed(2)} hours`}</div>*/}
         <button 
             onClick={toggleClearLogs} 
             className={style.btn} 
@@ -26,7 +27,7 @@ function TimeTable() {
                 transition: 'opacity 0.5s, visibility 0.5s'
             }}
         >
-        Finish job
+        Clear list
         </button>
         </div>
         
