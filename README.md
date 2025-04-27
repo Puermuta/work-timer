@@ -9,3 +9,5 @@
   <li><del>Make UI nicer to use</del></li>
   <li>Polishing and bugfixes 🦟</li>
 </ul>
+
+As this is my first react project, i will mainly focus on making the application work. Might have a look at the cleanliness and structure of the code some other time.
