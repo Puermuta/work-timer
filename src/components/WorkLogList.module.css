@@ -1,0 +1,9 @@
+.listContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-sizing: border-box;
+    outline-color: yellow;
+    width: 40vh;
+} 
+

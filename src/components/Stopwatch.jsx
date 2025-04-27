@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import style from "./Stopwatch.module.css";
+import { useWorkLogs } from "./WorkLogContext";
 
 function Stopwatch() {
     const [isActive, setIsActive] = useState(() => {
@@ -12,6 +13,8 @@ function Stopwatch() {
         const saved = localStorage.getItem("elapsedTime");
         return saved ? Number(saved) : 0;
     });
+
+    const { workLogs, setWorkLogs } = useWorkLogs();
 
     useEffect(() => {
         let interval;
@@ -45,6 +48,24 @@ function Stopwatch() {
         localStorage.removeItem("elapsedTime");
     }
 
+    const toggleFinishJob = () => {
+        const timestamp = new Date().toLocaleDateString();
+        const newEntry = { time: timestamp, workedTime: elapsedTime };
+        
+        const existingEntryIndex = workLogs.findIndex((log) => log.time == timestamp);
+
+        let updatedLogs;
+        if (existingEntryIndex !== -1) {
+            updatedLogs = [...workLogs];
+            updatedLogs[existingEntryIndex].workedTime += elapsedTime;
+        } else { 
+            updatedLogs = [...workLogs, newEntry];
+        }
+
+        setWorkLogs(updatedLogs);
+        resetStopwatch();
+    }
+
     const formatTime = (time) => {
         const hours = Math.floor(time / 3600000);
         const minutes = Math.floor((time % 3600000) / 60000);  // Convert milliseconds to minutes
@@ -53,12 +74,17 @@ function Stopwatch() {
         return `${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
     };
     
+
+
     return (
         <div className={style.container}>
             <h1 className={style.time}>{formatTime(elapsedTime)}</h1>
             <div className={style.btns}>
-            <button onClick = {resetStopwatch} className={style.btn}>Reset</button>
-                <button onClick = {toggleStopwatch} className={style.btn}>{isActive ? "Pause" : "Start"}</button>
+                <div className={style.row}>
+                    <button onClick = {resetStopwatch} className={style.btn}>Reset</button>
+                    <button onClick = {toggleStopwatch} className={style.btn}>{isActive ? "Pause" : "Start"}</button>
+                </div>
+                <button onClick = {toggleFinishJob} className = {`${style.btnFinishJob} ${style.btn}`}>Finish job</button>
             </div>
         </div>
     )
