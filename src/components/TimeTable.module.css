@@ -9,7 +9,7 @@
 }
 
 .title {
-    margin-bottom: 7vh;
+    margin-bottom: 3vh;
     font-size: 4rem;
     font-weight: 100;
     text-shadow: 2px 4px 6px rgba(255, 255, 255, 0.2);
@@ -21,7 +21,6 @@
     border-radius: 12px;
     border-width: 10px;
     font-size: 1.5rem;
-    font-weight: 500;
     background-color: #ffffff;
     color: rgb(0, 0, 0);
     border: none;
@@ -47,3 +46,15 @@
     font-weight: 300;
 
 }*/
+
+.listContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-sizing: border-box;
+    outline-color: yellow;
+    width: 40vh;
+    font-size: 1.75rem;
+    padding: 0.75rem;
+    border-radius: 12px;
+} 
