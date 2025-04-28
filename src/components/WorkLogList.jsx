@@ -19,12 +19,14 @@ const WorkLogList = ({ workLogs, className }) => {
             <div>Hours</div>
         </div>
         <div style={{"display":"flex", "flexDirection":"column", "justifyContent":"space-between", "height":"43vh"}}>
-        {workLogs.map((item) => (
-            <div key={item.time} className = {className} style={{"backgroundColor": "#00000023"}}>
-            <div>{item.time}</div>
-            <div>{convertToHours(item.workedTime)}</div>
+            <div>
+            {workLogs.map((item) => (
+                <div key={item.time} className = {className} style={{"backgroundColor": "#00000023"}}>
+                <div>{item.time}</div>
+                <div>{convertToHours(item.workedTime)}</div>
+                </div>
+            ))}
             </div>
-        ))}
             <div className = {className} style={{"backgroundColor": "#00000023"}}>
             <div>Total:</div>
             <div>{`${totalHours()}`}</div>
